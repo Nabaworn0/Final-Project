@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.next": true,
+    "**/.wrangler": true,
+    "**/dist": true,
+    "**/drizzle/meta": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/.wrangler": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "typescript.preferences.importModuleSpecifier": "non-relative"
+}

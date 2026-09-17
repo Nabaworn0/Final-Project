@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1787645494517,
+      "tag": "0000_mixed_wong",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1787649285427,
+      "tag": "0001_illegal_magdalene",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1787650686268,
+      "tag": "0002_document_extractions",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1787652000000,
+      "tag": "0003_file_retentions",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1788676826052,
+      "tag": "0004_course_management",
+      "breakpoints": true
+    }
+  ]
+}

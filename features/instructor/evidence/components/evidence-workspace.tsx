@@ -1,0 +1,7 @@
+export function EvidenceWorkspace() {
+  const fileTypes = ["แผนการสอน", "วิดีโอหรือไฟล์เสียง", "Transcript จากการสอน", "ผลวิเคราะห์ความสอดคล้อง"];
+  return <div className="evidence-workspace">
+    <section className="system-card evidence-context"><div><p className="card-label">TEACHING EVIDENCE</p><h2>หลักฐานการสอนและวิเคราะห์เนื้อหา</h2><p>ตรวจแผน คลิป Transcript และผลเปรียบเทียบก่อนเริ่มให้คะแนน</p></div><div><label>อีเมลนักศึกษา<input type="email" placeholder="student@email.kmutnb.ac.th" /></label><label>รอบประเมิน<select defaultValue=""><option value="" disabled>เลือกรอบประเมิน</option><option>Weekly Practice</option><option>Midterm</option><option>Final</option></select></label></div></section>
+    <section className="evidence-grid"><article className="system-card"><p className="card-label">SUBMITTED FILES</p><h3>ไฟล์ที่นักศึกษาส่ง</h3><div className="evidence-file-list">{fileTypes.map((item, index) => <div key={item}><span>0{index + 1}</span><div><strong>{item}</strong><small>ยังไม่มีไฟล์</small></div><b>—</b></div>)}</div></article><article className="system-card evidence-analysis"><p className="card-label">PLAN–TEACHING ALIGNMENT</p><h3>ผลวิเคราะห์ความสอดคล้อง</h3><div className="analysis-placeholder"><strong>ยังไม่มีผลวิเคราะห์</strong><p>เมื่อเลือกนักศึกษาและรอบที่มีหลักฐานครบ ระบบจะแสดงความครอบคลุมเนื้อหา หัวข้อที่พบ และหัวข้อที่ไม่พบ</p></div><div className="evidence-actions"><button disabled>ดูวิดีโอ</button><button disabled>ดู Transcript</button><button disabled>แนบผลวิเคราะห์เข้าการประเมิน</button></div></article></section>
+  </div>;
+}
