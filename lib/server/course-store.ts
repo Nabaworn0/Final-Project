@@ -148,8 +148,11 @@ export function createCourseStore(db: CourseDatabase) {
         const id = value(input, "id", 100);
         if (!await db.prepare("SELECT id FROM course_rooms WHERE id = ? AND course_id = ? AND phase = 'before_midterm'").bind(id, courseId).first()) throw new CourseError("ไม่พบห้องในช่วงก่อนกลางภาค");
         await db.prepare("UPDATE course_rooms SET name = ?, instructor_id = ?, cohort = COALESCE(?, cohort) WHERE id = ? AND course_id = ?").bind(name, instructorId, cohort, id, courseId).run();
+        return { courseId, roomId: id };
       } else {
-        await db.prepare("INSERT INTO course_rooms(id,course_id,name,phase,instructor_id,cohort) VALUES (?,?,?,'before_midterm',?,?)").bind(crypto.randomUUID(), courseId, name, instructorId, cohort).run();
+        const roomId = crypto.randomUUID();
+        await db.prepare("INSERT INTO course_rooms(id,course_id,name,phase,instructor_id,cohort) VALUES (?,?,?,'before_midterm',?,?)").bind(roomId, courseId, name, instructorId, cohort).run();
+        return { courseId, roomId };
       }
     } else if (action === "assign_student") {
       const studentId = value(input, "studentId", 100);

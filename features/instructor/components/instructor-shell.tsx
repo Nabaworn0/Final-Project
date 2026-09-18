@@ -6,7 +6,7 @@ import { useState, type ReactNode } from "react";
 
 const navigation = [
   ["/instructor/courses", "ห้องเรียน"],
-  ["/instructor/students", "นักศึกษาที่รับผิดชอบ"],
+  ["/instructor/students", "อาจารย์ผู้รับผิดชอบ"],
   ["/instructor/evaluations/weekly", "ซ้อมสอนรายสัปดาห์"],
   ["/instructor/evaluations/midterm", "สอบกลางภาค"],
   ["/instructor/evaluations/final", "สอบปลายภาค"],

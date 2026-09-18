@@ -14,7 +14,7 @@ export function InstructorDashboard({ studentCount, courseCount }: { studentCoun
     </section>
 
     <section className="teacher-summary" aria-label="สรุปข้อมูลสำคัญ">
-      <article><span>นักศึกษาที่รับผิดชอบ</span><strong>{studentCount}</strong><small>รายชื่อไม่ซ้ำจาก {courseCount} รายวิชาที่เข้าถึงได้</small></article>
+      <article><span>ผู้เรียนในห้องที่รับผิดชอบ</span><strong>{studentCount}</strong><small>รายชื่อไม่ซ้ำจาก {courseCount} รายวิชาที่เข้าถึงได้</small></article>
       <article><span>ประเมินแล้ว</span><strong>—</strong><small>ยังไม่มีข้อมูลในรอบปัจจุบัน</small></article>
       <article><span>รอประเมิน</span><strong>—</strong><small>จะแสดงเมื่อกำหนดรอบประเมิน</small></article>
       <article className="current-phase-stat"><span>รอบปัจจุบัน</span><strong>ยังไม่กำหนด</strong><small>Weekly · Midterm · Final</small></article>
@@ -40,7 +40,7 @@ export function InstructorDashboard({ studentCount, courseCount }: { studentCoun
 
     <section className="teacher-lower-grid">
       <article className="system-card student-monitor-card">
-        <div className="section-heading"><div><p className="card-label">STUDENT FOLLOW-UP</p><h3>นักศึกษาที่ควรติดตาม</h3></div><Link href="/instructor/students">ดูนักศึกษา →</Link></div>
+        <div className="section-heading"><div><p className="card-label">INSTRUCTOR ASSIGNMENT</p><h3>อาจารย์ผู้รับผิดชอบ</h3></div><Link href="/instructor/students">ดูรายชื่ออาจารย์ →</Link></div>
         <div className="compact-empty student-monitor-empty"><span>↗</span><p>สถานะ “ดีขึ้น–คงที่–ต้องติดตาม” และคะแนนครั้งล่าสุดจะแสดงหลังมีผลอย่างน้อยสองครั้ง</p></div>
       </article>
       <article className="system-card feedback-loop-card">

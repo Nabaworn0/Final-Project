@@ -190,4 +190,31 @@ export const roomMemberships = sqliteTable("room_memberships", {
   foreignKey({ columns: [t.studentId, t.courseId], foreignColumns: [coursePeople.id, coursePeople.courseId] }),
   foreignKey({ columns: [t.roomId, t.courseId, t.phase], foreignColumns: [courseRooms.id, courseRooms.courseId, courseRooms.phase] }),
 ]);
+
+export const weeklyFeedback = sqliteTable("weekly_feedback", {
+  id: text("id").primaryKey(),
+  courseId: text("course_id").notNull().references(() => courses.id, { onDelete: "cascade" }),
+  studentId: text("student_id").notNull(),
+  instructorId: text("instructor_id").notNull(),
+  week: integer("week").notNull(),
+  comment: text("comment").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+}, (t) => [
+  uniqueIndex("idx_weekly_feedback_entry").on(t.courseId, t.studentId, t.instructorId, t.week),
+  index("idx_weekly_feedback_student").on(t.courseId, t.studentId),
+  foreignKey({ columns: [t.studentId, t.courseId], foreignColumns: [coursePeople.id, coursePeople.courseId] }),
+]);
+
+export const midtermCommittees = sqliteTable("midterm_committees", {
+  id: text("id").primaryKey(),
+  courseId: text("course_id").notNull().references(() => courses.id, { onDelete: "cascade" }),
+  cohort: text("cohort").notNull(),
+  groupNumber: integer("group_number").notNull(),
+  slot: integer("slot").notNull(),
+  instructorId: text("instructor_id").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+}, (t) => [
+  uniqueIndex("idx_midterm_committee_slot").on(t.courseId, t.cohort, t.groupNumber, t.slot),
+  foreignKey({ columns: [t.instructorId, t.courseId], foreignColumns: [coursePeople.id, coursePeople.courseId] }),
+]);
 export type LessonPlanStatus = "draft" | "analyzed" | "submitted" | "revision" | "approved";
